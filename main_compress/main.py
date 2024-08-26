@@ -6,8 +6,10 @@ from update_to_db import update_popup_scroll_name
 from db_control_05compressed import update_all_tag_data_compressed
 import time
 from pymongo import MongoClient
+from crawl_last_page import get_last_page
 
 if __name__ == "__main__":
+    
     
     client = MongoClient('mongodb://localhost:27017')
     compress_db = client.medical_data_compressed
@@ -22,10 +24,10 @@ if __name__ == "__main__":
     
     print('start product_code crwaling')
 
-    crawl_product_code_to_csv()
+    crawl_product_code_to_csv(6801 , get_last_page())
         
     print('start pront data crwaling')
-    crawl_pront_data_to_csv()
+    crawl_pront_data_to_csv(6801 , get_last_page())
 
     print('start popup data all tag crwaling')
     crawl_popup_data_all_tag_to_json()

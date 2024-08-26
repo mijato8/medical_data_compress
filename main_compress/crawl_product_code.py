@@ -544,12 +544,12 @@ import pandas as pd
 import requests
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from bs4 import BeautifulSoup
-from crwal_last_page import get_last_page
+from crawl_last_page import get_last_page
 from tqdm import tqdm
 import time
 
-start_page = 1001
-last_page = 2000
+# start_page = 1001
+# last_page = 2000
 max_workers = int(os.cpu_count() * 2)
 
 def setup_logging():
@@ -642,7 +642,7 @@ def update_duplicates_info(pages_with_duplicates):
             updated_codes.extend(page_codes)
     return updated_codes
 
-def crawl_product_code_to_csv():
+def crawl_product_code_to_csv(start_page,last_page):
     start_time = time.time()
     
     setup_logging() 

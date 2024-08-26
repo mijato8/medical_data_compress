@@ -25,6 +25,6 @@ def get_last_page():
     return last_page_number
     
 
-# print(f'Last page number is: {last_page}')
+# print(f'Last page number is: {last_page_number}')
 # print(get_last_page(url))
 

@@ -535,12 +535,12 @@ import pandas as pd
 import requests
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from tqdm import tqdm
-from crwal_last_page import get_last_page
+from crawl_last_page import get_last_page
 import time
 import os
 
-start_page = 1001
-last_page =  2000
+# start_page = 1001
+# last_page =  2000
 max_workers = int(os.cpu_count() * 2)
 
 def setup_logging():
@@ -677,7 +677,7 @@ def remove_duplicates(df):
 
     return df
 
-def crawl_pront_data_to_csv():
+def crawl_pront_data_to_csv(start_page,last_page):
     
     setup_logging()
     
