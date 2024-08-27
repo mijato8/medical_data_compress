@@ -296,8 +296,11 @@ def parse_table(product_code):
         html_content = fetch_html(product_code)
         if html_content:
             soup = BeautifulSoup(html_content, 'html.parser')
-            table = soup  # .find('section', class_=['drug_content', 'drug_list'])
-            if table.find('div' , class_ = 'drug_container') is not None: 
+            table = soup
+            table_01 = soup.find('table' , class_= 's-dr_table dr_table_type1')
+            tds = table_01.find_all('td')
+            scroll_01_text = [td.text for td in tds]
+            if (table.find('div' , class_ = 'drug_container') is not None) and (str(product_code) in scroll_01_text): 
                 return (product_code, str(table))  # 튜플 형태로 반환
             else:
                 logging.warning(f"No data found in the table for product code {product_code}")
