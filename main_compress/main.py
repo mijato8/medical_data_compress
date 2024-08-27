@@ -10,7 +10,6 @@ from crawl_last_page import get_last_page
 
 if __name__ == "__main__":
     
-    
     client = MongoClient('mongodb://localhost:27017')
     compress_db = client.medical_data_compressed
     compressed_parsing_db = client.parsing_data_compressed

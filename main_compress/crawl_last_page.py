@@ -23,8 +23,3 @@ def get_last_page():
     last_page_number = int(match.group(1))
     
     return last_page_number
-    
-
-# print(f'Last page number is: {last_page_number}')
-# print(get_last_page(url))
-
